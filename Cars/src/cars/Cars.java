@@ -17,6 +17,7 @@ public class Cars {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("This is test");
+        System.out.println("This is test2");
     }
     
 }
