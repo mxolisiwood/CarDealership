@@ -16,6 +16,7 @@ public class Cardealership {
      */
     public static void main(String[] args) {
         System.out.println("Hello my java application");
+        System.out.println("This is a second test Jusst to make sure");
     }
     
 }
