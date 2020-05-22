@@ -5,6 +5,13 @@
  */
 package cardealership;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author silab
@@ -16,6 +23,20 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        getConnection();
+    }
+     private Connection getConnection() {
+       Connection cnn = null;
+       try {
+           cnn = DriverManager.getConnection("jdbc:mysql://localhost/cardealership","root","");
+           JOptionPane.showMessageDialog(null,"Connected");
+           return cnn;
+       } catch (SQLException ex) {
+           Logger.getLogger(Login.class.getName()).log(Level.SEVERE,null,ex);
+           JOptionPane.showMessageDialog(null,"Not Connected");
+           return null;
+       
+       }
     }
 
     /**
@@ -138,4 +159,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+   
 }
