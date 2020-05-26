@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+import cardealership.tables_Classes.accounts;
 
 public class dbConnection {
     
@@ -28,5 +28,18 @@ public class dbConnection {
        
        }
     }
-    
+     
+    public String getFirst(){
+        ResultSet result;
+        try(
+              Connection con = getConnection();
+              Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+              ResultSet rs = stmt.executeQuery("SELECT * FROM accounts");
+                ){
+          return accounts.getUserData(rs);
+        }catch(SQLException e){
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE,null,e);
+        }
+          return "ERROR IN DBCLASS";
+    }
 }
