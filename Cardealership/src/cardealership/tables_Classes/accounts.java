@@ -7,6 +7,24 @@ import java.util.logging.Logger;
 
 public class accounts {
     
+    public static String[] getUsernameAndPassword(ResultSet rs, String username){
+        try {
+              while(rs.next()){
+                  
+                  if(rs.getString("user_name") == username){
+                      String [] result = null;
+                      result[0] = rs.getString("user_name");
+                      result[1]= rs.getString("password");
+                      return result;
+                  }
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(accounts.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public static String toStringUserData(ResultSet rs){
         
         try {
@@ -14,9 +32,9 @@ public class accounts {
             StringBuilder buffer = new StringBuilder();
             
             while(rs.next()){
-                buffer.append("Account_id : ").append(rs.getInt("id"));
-                buffer.append(rs.getString("user_name") + " ");
-                buffer.append(rs.getDouble(" account_balance" + " "));
+                buffer.append("Account_id : ").append(rs.getInt("id") + "\n");
+                buffer.append("User name : ").append(rs.getString("user_name") + " \n");
+                buffer.append("Account Balance : ").append(rs.getDouble("account_balance") + "\n");
             }
             
             return buffer.toString();
