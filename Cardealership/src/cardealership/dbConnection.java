@@ -13,7 +13,23 @@ public class dbConnection {
     private static final String PASSWORD = "";
     private static final String CONN = "jdbc:mysql://localhost/cardealership";
     
-  
+    public static boolean CompareUserData(String username, String password){
+        try {
+            Connection con = getConnection();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = stmt.executeQuery("SELECT * FROM account WHERE user_name = " + username);
+            
+            String [] user_pass = accounts.getUsernameAndPassword(rs, username);
+            
+            if(user_pass[0].equals(username) && user_pass[1].equals(password)){
+                return true;
+            }
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
     
     public static Connection getConnection() {
        Connection cnn = null;
@@ -29,17 +45,17 @@ public class dbConnection {
        }
     }
      
-    public String getFirst(){
-        ResultSet result;
+    public static String executeUserdata(){
         try(
               Connection con = getConnection();
               Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-              ResultSet rs = stmt.executeQuery("SELECT * FROM accounts");
+              ResultSet rs = stmt.executeQuery("SELECT * FROM account");
                 ){
-          return accounts.getUserData(rs);
+          return accounts.toStringUserData(rs);
         }catch(SQLException e){
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE,null,e);
         }
           return "ERROR IN DBCLASS";
     }
+    
 }
