@@ -23,20 +23,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        getConnection();
-    }
-     private Connection getConnection() {
-       Connection cnn = null;
-       try {
-           cnn = DriverManager.getConnection("jdbc:mysql://localhost/cardealership","root","");
-           JOptionPane.showMessageDialog(null,"Connected");
-           return cnn;
-       } catch (SQLException ex) {
-           Logger.getLogger(Login.class.getName()).log(Level.SEVERE,null,ex);
-           JOptionPane.showMessageDialog(null,"Not Connected");
-           return null;
-       
-       }
+        dbConnection.getConnection();
     }
 
     /**
@@ -72,8 +59,15 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("Password    :");
 
         jTextField1.setText("username");
+        jTextField1.setName("txtboxUserName"); // NOI18N
 
         jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.setName("txtboxPassword"); // NOI18N
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,7 +80,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -114,8 +108,12 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBTNActionPerformed
-        // TODO add your handling code here:
+        System.out.println(dbConnection.executeUserdata());
     }//GEN-LAST:event_LoginBTNActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * @param args the command line arguments
