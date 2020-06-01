@@ -11,10 +11,14 @@ public class accounts {
         try {
               while(rs.next()){
                   
+                  String [] result = null;
+                  
                   if(rs.getString("user_name") == username){
-                      String [] result = null;
                       result[0] = rs.getString("user_name");
                       result[1]= rs.getString("password");
+                      return result;
+                  } else {
+                      result[0] = "NoUser";
                       return result;
                   }
             }
