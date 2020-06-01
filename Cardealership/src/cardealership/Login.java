@@ -8,6 +8,7 @@ package cardealership;
 import static cardealership.dbConnection.executeUserdata;
 import static cardealership.dbConnection.CompareUserData;
 import static cardealership.dbConnection.getConnection;
+import cardealership.tables_Classes.accounts;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -116,8 +117,10 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBTNActionPerformed
+     String username = jTextField1.getText();
+     String password = jPasswordField1.getText();
      
-     if(CompareUserData("username","password")){
+     if(dbConnection.CompareUserData(username ,password )){
          new Login().setVisible(false);
          dispose();
          new account().setVisible(true);
@@ -135,15 +138,8 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+  
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
