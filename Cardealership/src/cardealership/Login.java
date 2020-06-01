@@ -116,10 +116,14 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBTNActionPerformed
-     CompareUserData("username","password");
-    new Login().setVisible(false);
-    dispose();
-    new account().setVisible(true);
+     
+     if(CompareUserData("username","password")){
+         new Login().setVisible(false);
+         dispose();
+         new account().setVisible(true);
+     }else {
+        JOptionPane.showMessageDialog(null,"Wrong user name or password !");
+     }
      
     }//GEN-LAST:event_LoginBTNActionPerformed
 
