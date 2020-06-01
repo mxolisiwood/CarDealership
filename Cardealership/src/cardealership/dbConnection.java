@@ -17,13 +17,14 @@ public class dbConnection {
         try {
             Connection con = getConnection();
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet rs = stmt.executeQuery("SELECT * FROM account WHERE user_name = " + username);
+            ResultSet rs = stmt.executeQuery("SELECT * FROM account WHERE user_name = '" + username + "'");
             
-            String [] user_pass = accounts.getUsernameAndPassword(rs, username);
-            
-            if(user_pass[0].equals(username) && user_pass[1].equals(password)){
-                return true;
+            while(rs.next()){
+                if(rs.getString("user_name").equals(username) && rs.getString("password").equals(password)){
+                    return true;
+                }
             }
+    
         
         } catch (SQLException ex) {
             Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
