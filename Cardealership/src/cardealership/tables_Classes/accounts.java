@@ -8,12 +8,14 @@ import java.util.logging.Logger;
 public class accounts {
     
     public static String[] getUsernameAndPassword(ResultSet rs, String username){
+        
         try {
+            
               while(rs.next()){
                   
                   String [] result = null;
                   
-                  if(rs.getString("user_name") == username){
+                  if(rs.getString("user_name") == null ? username == null : rs.getString("user_name").equals(username)){
                       result[0] = rs.getString("user_name");
                       result[1]= rs.getString("password");
                       return result;
