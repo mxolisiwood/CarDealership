@@ -6,6 +6,7 @@
 package cardealership;
 
 import static cardealership.dbConnection.executeUserdata;
+import static cardealership.dbConnection.CompareUserData;
 import static cardealership.dbConnection.getConnection;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -115,7 +116,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBTNActionPerformed
-     executeUserdata();
+     CompareUserData("username","password");
     new Login().setVisible(false);
     dispose();
     new account().setVisible(true);
