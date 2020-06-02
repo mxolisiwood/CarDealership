@@ -5,7 +5,6 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import cardealership.tables_Classes.accounts;
 
 public class dbConnection {
     
@@ -52,11 +51,30 @@ public class dbConnection {
               Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
               ResultSet rs = stmt.executeQuery("SELECT * FROM account");
                 ){
-          return accounts.toStringUserData(rs);
+          return toStringUserData(rs);
         }catch(SQLException e){
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE,null,e);
         }
           return "ERROR IN DBCLASS";
     }
     
+     public static String toStringUserData(ResultSet rs){
+        
+        try {
+            
+            StringBuilder buffer = new StringBuilder();
+            
+            while(rs.next()){
+                buffer.append("Account_id : ").append(rs.getInt("id") + "\n");
+                buffer.append("User name : ").append(rs.getString("user_name") + " \n");
+                buffer.append("Account Balance : ").append(rs.getDouble("account_balance") + "\n");
+            }
+            
+            return buffer.toString();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "ERROR IN ACCOUNTS CLASS";
+    }
 }
