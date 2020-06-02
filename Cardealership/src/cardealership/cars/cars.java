@@ -10,8 +10,24 @@ package cardealership.cars;
  * @author silab
  */
 public class cars {
-    
-    
+    public cars(int Age,
+                long Milage,
+                String Brand,
+                String Model, 
+                double FuelTankSize,
+                boolean Electric,
+                String NumberPlate){
+        this.Age = Age;
+        this.Brand = Brand;
+        this.Milage = Milage;
+        this.FuelTankSize = FuelTankSize;
+        this.NumberPlate = NumberPlate;
+        this.Model = Model;
+        this.Electric = false;
+    }
+    public cars(){
+        
+    }
     String Color;
      public void setColor(String value){
         Color = value;
@@ -71,5 +87,21 @@ public class cars {
     }
     public String getNumberPlate(){
         return NumberPlate;
+    }
+    
+      public Object clone() throws CloneNotSupportedException{
+        //HW: Implement cloning -- DONE!!
+        
+         cars clone = new cars();
+         clone.Color = this.Color;
+         clone.Age = this.Age;
+         clone.Brand = this.Brand;
+         clone.Electric = this.Electric;
+         clone.FuelTankSize = this.FuelTankSize;
+         clone.Milage = this.Milage;
+         clone.NumberPlate = this.NumberPlate;
+         clone.Model = this.Model;
+         
+        return super.clone();
     }
 }
