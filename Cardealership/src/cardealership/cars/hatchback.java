@@ -9,6 +9,24 @@ package cardealership.cars;
  *
  * @author silab
  */
-public class hatchback {
-    
+public class hatchback extends cars{
+    public hatchback(int Age,
+                long Milage,
+                String Brand,
+                String Model, 
+                double FuelTankSize,
+                boolean Electric,
+                String NumberPlate,
+                double FuelEfficiency){
+        super(Age, Milage, Brand, Model, FuelTankSize, Electric, NumberPlate);
+        
+        this.FuelEfficiency = FuelEfficiency;
+    }
+    double FuelEfficiency;
+    public void setFuelEfficency(double value){
+        FuelEfficiency = value;
+    }
+    public double getFuelEfficiency(){
+        return FuelEfficiency;
+    }
 }
