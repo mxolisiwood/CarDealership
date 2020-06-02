@@ -8,7 +8,6 @@ package cardealership;
 import static cardealership.dbConnection.executeUserdata;
 import static cardealership.dbConnection.CompareUserData;
 import static cardealership.dbConnection.getConnection;
-import cardealership.tables_Classes.accounts;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
