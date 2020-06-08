@@ -7,11 +7,11 @@ package cardealership.cars;
 
 /**
  *
- * @author wadef
+ * @author silab
  */
-public class Sportscar extends Car {
+public class Van extends Car {
 
-    public Sportscar(String Model, String Brand, String NumberPlate) {
+    public Van(String Model, String Brand, String NumberPlate) {
         super(Model, Brand, NumberPlate);
     }
     
