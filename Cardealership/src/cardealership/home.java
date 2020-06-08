@@ -14,7 +14,7 @@ public class home extends javax.swing.JFrame {
      public home(String username){
         initComponents();
         
-        jLabel2.setText(username);
+        jLabel3.setText(username);
     }
     /**
      * Creates new form home
