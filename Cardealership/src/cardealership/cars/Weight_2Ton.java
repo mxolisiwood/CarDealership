@@ -12,7 +12,7 @@ package cardealership.cars;
 public class Weight_2Ton implements IWeight {
 
     @Override
-    public int Weight() {
+    public int getWeight() {
         return 2;
     }
     

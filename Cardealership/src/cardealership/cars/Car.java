@@ -58,5 +58,9 @@ public abstract class Car {
     public int performSpeed(){
         return maxSpeed.getSpeed();
     }
+    
+   public int performWeight(){
+       return weight.getWeight();
+   }
       
 }
