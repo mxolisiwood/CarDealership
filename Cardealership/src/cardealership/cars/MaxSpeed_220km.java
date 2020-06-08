@@ -9,6 +9,11 @@ package cardealership.cars;
  *
  * @author wadef
  */
-public class MaxSpeed_220km {
+public class MaxSpeed_220km implements IMaxSpeed {
+
+    @Override
+    public int getSpeed() {
+      return 220;
+    }
     
 }

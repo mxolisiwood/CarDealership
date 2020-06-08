@@ -9,6 +9,11 @@ package cardealership.cars;
  *
  * @author wadef
  */
-public class Passengers_8 {
+public class Passengers_8 implements INoOfPassengers{
+
+    @Override
+    public int NoOfPassengers() {
+        return 8;
+    }
     
 }

@@ -11,5 +11,5 @@ package cardealership.cars;
  */
 public interface IMaxSpeed {
     public int getSpeed();
-    public void setSpeed(int Speed);
+   
 }

@@ -9,6 +9,7 @@ package cardealership.cars;
  *
  * @author wadef
  */
-public class INoOfPassengers {
-    
+public interface INoOfPassengers {
+    public int NoOfPassengers();
+   
 }

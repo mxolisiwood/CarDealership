@@ -9,6 +9,11 @@ package cardealership.cars;
  *
  * @author wadef
  */
-public class Weight_2Ton {
+public class Weight_2Ton implements IWeight {
+
+    @Override
+    public int Weight() {
+        return 2;
+    }
     
 }

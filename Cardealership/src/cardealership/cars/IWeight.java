@@ -9,6 +9,6 @@ package cardealership.cars;
  *
  * @author wadef
  */
-public class IWeight {
-    
+public interface IWeight {
+    public int Weight();
 }
