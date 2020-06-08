@@ -23,10 +23,7 @@ public abstract class Car {
     
     public IWeight weight;
     
-    public Car(IMaxSpeed maxSp, INoOfPassengers noofpass, IWeight weight, String Model, String Brand, String NumberPlate){
-        this.maxSpeed = maxSp;
-        this.noOfpassengers = noofpass;
-        this.weight = weight;
+    public Car(String Model, String Brand, String NumberPlate){
         this.Model = Model;
         this.Brand = Brand;
         this.NumberPlate = NumberPlate;
@@ -56,6 +53,10 @@ public abstract class Car {
 
     public void setNumberPlate(String NumberPlate) {
         this.NumberPlate = NumberPlate;
+    }
+    
+    public int performSpeed(){
+        return maxSpeed.getSpeed();
     }
       
 }
