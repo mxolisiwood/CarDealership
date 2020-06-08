@@ -17,6 +17,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -31,17 +32,20 @@ public class sell extends javax.swing.JFrame {
         try {
             initComponents();
             
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             Connection con = dbConnection.getConnection();
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rs = stmt.executeQuery("SELECT * FROM cars");
             
-            while(rs.next()){
-                rs.getString("model");
-                rs.getString("num_plate");
-                rs.getString("brand");
-                rs.getInt("passengers");
-                rs.getDouble("price");
-                rs.getDouble("weight"); 
+           while(rs.next()){ 
+                model.insertRow(model.getRowCount(), new Object[] {
+                    rs.getString("model"),
+                    rs.getString("num_plate"),
+                    rs.getString("brand"),
+                    rs.getInt("passengers"),
+                    rs.getDouble("price"),
+                    rs.getDouble("weight")    
+                });
             }
         } catch (SQLException ex) {
             Logger.getLogger(sell.class.getName()).log(Level.SEVERE, null, ex);
