@@ -43,9 +43,9 @@ public class account extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        rgbSUV = new javax.swing.JRadioButton();
+        rgbSportsCar = new javax.swing.JRadioButton();
+        rgbVan = new javax.swing.JRadioButton();
         jButton3 = new javax.swing.JButton();
 
         jButton2.setText("Add New Car");
@@ -133,24 +133,24 @@ public class account extends javax.swing.JFrame {
 
         jLabel15.setText("Car Types");
 
-        jRadioButton1.setText("SUV");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        rgbSUV.setText("SUV");
+        rgbSUV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                rgbSUVActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Sportscar");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        rgbSportsCar.setText("Sportscar");
+        rgbSportsCar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                rgbSportsCarActionPerformed(evt);
             }
         });
 
-        jRadioButton3.setText("Van");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        rgbVan.setText("Van");
+        rgbVan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                rgbVanActionPerformed(evt);
             }
         });
 
@@ -161,12 +161,12 @@ public class account extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
+                    .addComponent(rgbSportsCar)
+                    .addComponent(rgbVan)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel15)
                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jRadioButton1))
+                    .addComponent(rgbSUV))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -175,11 +175,11 @@ public class account extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel15)
                 .addGap(14, 14, 14)
-                .addComponent(jRadioButton1)
+                .addComponent(rgbSUV)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton2)
+                .addComponent(rgbSportsCar)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton3)
+                .addComponent(rgbVan)
                 .addGap(14, 14, 14)
                 .addComponent(jLabel14)
                 .addContainerGap(17, Short.MAX_VALUE))
@@ -244,17 +244,17 @@ public class account extends javax.swing.JFrame {
          
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void rgbSUVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rgbSUVActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_rgbSUVActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void rgbSportsCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rgbSportsCarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_rgbSportsCarActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void rgbVanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rgbVanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_rgbVanActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        new account().setVisible(false);
@@ -311,12 +311,12 @@ public class account extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JRadioButton rgbSUV;
+    private javax.swing.JRadioButton rgbSportsCar;
+    private javax.swing.JRadioButton rgbVan;
     // End of variables declaration//GEN-END:variables
 }
