@@ -13,6 +13,9 @@ public class Sportscar extends Car {
 
     public Sportscar(String Model, String Brand, String NumberPlate) {
         super(Model, Brand, NumberPlate);
+        maxSpeed = new MaxSpeed_220km();
+        weight = new Weight_1ton();
+        noOfpassengers = new Passengers_2();
     }
     
 }

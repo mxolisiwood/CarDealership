@@ -29,7 +29,6 @@ public abstract class Car {
         this.NumberPlate = NumberPlate;
     }
     
-    
 
     public String getModel() {
         return Model;
