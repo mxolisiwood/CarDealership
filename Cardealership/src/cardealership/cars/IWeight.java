@@ -10,5 +10,5 @@ package cardealership.cars;
  * @author wadef
  */
 public interface IWeight {
-    public int getWeight();
+    public double getWeight();
 }

@@ -61,7 +61,7 @@ public abstract class Car {
         return maxSpeed.getSpeed();
     }
     
-    public int performWeight(){
+    public double performWeight(){
         return weight.getWeight();
     }
     
