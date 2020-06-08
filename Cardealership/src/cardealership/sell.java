@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package cardealership;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,6 +17,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author silab
@@ -22,22 +27,25 @@ public class sell extends javax.swing.JFrame {
     /**
      * Creates new form sell
      */
-    public sell() throws SQLException {
-        initComponents();
-        
-        Connection con = dbConnection.getConnection();
-          Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-              ResultSet rs = stmt.executeQuery("SELECT * FROM cars");
-              
-           while(rs.next()){
-               rs.getString("model");
-               rs.getString("num_plate");
-               rs.getString("brand");
-               rs.getInt("passengers");
-               rs.getDouble("price");
-               rs.getDouble("weight");
-           }   
-        
+    public sell() {
+        try {
+            initComponents();
+            
+            Connection con = dbConnection.getConnection();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = stmt.executeQuery("SELECT * FROM cars");
+            
+            while(rs.next()){
+                rs.getString("model");
+                rs.getString("num_plate");
+                rs.getString("brand");
+                rs.getInt("passengers");
+                rs.getDouble("price");
+                rs.getDouble("weight"); 
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(sell.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -151,11 +159,7 @@ public class sell extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
-            new sell().setVisible(false);
-        } catch (SQLException ex) {
-            Logger.getLogger(sell.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        new sell().setVisible(false);
        dispose();
        new home().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
