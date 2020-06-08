@@ -15,6 +15,7 @@ public class home extends javax.swing.JFrame {
         initComponents();
         
         jLabel3.setText(username);
+        jLabel5.setText(dbConnection.getBalance(username));
     }
     /**
      * Creates new form home

@@ -40,7 +40,6 @@ public class dbConnection {
        Connection cnn = null;
        try {
            cnn =  DriverManager.getConnection(CONN, USERNAME, PASSWORD);
-           JOptionPane.showMessageDialog(null,"Connected");
            return cnn;
        } catch (SQLException ex) {
            Logger.getLogger(Login.class.getName()).log(Level.SEVERE,null,ex);
@@ -83,5 +82,17 @@ public class dbConnection {
         return "ERROR IN ACCOUNTS CLASS";
     }
     
-    
+    public static String getBalance(String username){
+        try {
+            Connection con = getConnection();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = stmt.executeQuery("SELECT account_balance FROM account WHERE user_name = '" +username+"'");
+            if(rs.next()){
+                return Double.toString(rs.getDouble("account_balance"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     return "ERROR IN getBalance";   
+    }
 }
