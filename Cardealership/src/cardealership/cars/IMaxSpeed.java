@@ -7,8 +7,9 @@ package cardealership.cars;
 
 /**
  *
- * @author silab
+ * @author wadef
  */
-public class supercar {
-    
+public interface IMaxSpeed {
+    public int getSpeed();
+    public void setSpeed(int Speed);
 }

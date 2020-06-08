@@ -7,8 +7,8 @@ package cardealership.cars;
 
 /**
  *
- * @author silab
+ * @author wadef
  */
-public class salon {
+public class Passengers_8 {
     
 }
