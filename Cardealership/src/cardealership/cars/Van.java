@@ -11,8 +11,8 @@ package cardealership.cars;
  */
 public class Van extends Car {
 
-    public Van(String Model, String Brand, String NumberPlate) {
-        super(Model, Brand, NumberPlate);
+    public Van(String Model, String Brand, String NumberPlate, double price) {
+        super(Model, Brand, NumberPlate, price);
         weight = new Weight_3ton();
         noOfpassengers = new Passengers_8();
         maxSpeed = new MaxSpeed_140km();

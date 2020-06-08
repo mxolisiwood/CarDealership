@@ -19,14 +19,17 @@ public abstract class Car {
     
     public IMaxSpeed maxSpeed;
     
+    public double price;
+    
     public INoOfPassengers noOfpassengers;
     
     public IWeight weight;
     
-    public Car(String Model, String Brand, String NumberPlate){
+    public Car(String Model, String Brand, String NumberPlate, double price){
         this.Model = Model;
         this.Brand = Brand;
         this.NumberPlate = NumberPlate;
+        this.price = price;
     }
     
 

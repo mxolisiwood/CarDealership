@@ -11,8 +11,8 @@ package cardealership.cars;
  */
 public class Sportscar extends Car {
 
-    public Sportscar(String Model, String Brand, String NumberPlate) {
-        super(Model, Brand, NumberPlate);
+    public Sportscar(String Model, String Brand, String NumberPlate, double price) {
+        super(Model, Brand, NumberPlate, price);
         maxSpeed = new MaxSpeed_220km();
         weight = new Weight_1ton();
         noOfpassengers = new Passengers_2();
