@@ -11,6 +11,11 @@ package cardealership;
  */
 public class home extends javax.swing.JFrame {
 
+     public home(String username){
+        initComponents();
+        
+        jLabel2.setText(username);
+    }
     /**
      * Creates new form home
      */
@@ -46,6 +51,7 @@ public class home extends javax.swing.JFrame {
         jLabel2.setText("Username :");
 
         jLabel3.setText("username");
+        jLabel3.setName("lblUsername"); // NOI18N
 
         jLabel4.setText("Account Balance:");
 
@@ -111,6 +117,8 @@ public class home extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
+
+        jLabel3.getAccessibleContext().setAccessibleName("user_name");
 
         pack();
         setLocationRelativeTo(null);

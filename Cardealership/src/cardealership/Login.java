@@ -113,7 +113,7 @@ public class Login extends javax.swing.JFrame {
      if(dbConnection.CompareUserData(username ,password )){
          new Login().setVisible(false);
          dispose();
-         new home().setVisible(true);
+         new home(username).setVisible(true);
      }else {
         JOptionPane.showMessageDialog(null,"Wrong user name or password !");
      }
