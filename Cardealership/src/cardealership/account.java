@@ -5,6 +5,8 @@
  */
 package cardealership;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author silab
@@ -241,7 +243,20 @@ public class account extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         
+      
+        if (rgbSUV.isSelected()) {
+            
+        }
+        else if (rgbSportsCar.isSelected()) {
+            
+        }
+        else if (rgbVan.isSelected()) {
+            
+        }
+        else {
+             JOptionPane.showMessageDialog(null,"Please select Type of Car.");
+           
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void rgbSUVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rgbSUVActionPerformed
