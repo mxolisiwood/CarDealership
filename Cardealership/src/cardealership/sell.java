@@ -40,13 +40,13 @@ public class sell extends javax.swing.JFrame {
            while(rs.next()){ 
                 model.insertRow(model.getRowCount(), new Object[] {
                     rs.getString("model"),
-                    rs.getString("number_plate"),
                     rs.getString("brand"),
-                    rs.getInt("num_passengers"),
-                    rs.getDouble("price"),
-                    rs.getDouble("weight"),
-                    rs.getInt("topspeed")
-                    
+                     rs.getInt("topspeed"),
+                     rs.getInt("num_passengers"),
+                    rs.getString("number_plate"),
+                     rs.getDouble("weight"),
+                     rs.getDouble("price")
+  
                 });
             }
         } catch (SQLException ex) {
