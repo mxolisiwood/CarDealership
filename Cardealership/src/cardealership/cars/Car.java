@@ -59,8 +59,12 @@ public abstract class Car {
         return maxSpeed.getSpeed();
     }
     
-   public int performWeight(){
-       return weight.getWeight();
-   }
+    public int performWeight(){
+        return weight.getWeight();
+    }
+    
+    public int performNoofPassengers(){
+        return noOfpassengers.NoOfPassengers();
+    }
       
 }
