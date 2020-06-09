@@ -161,6 +161,20 @@ public class CarTest {
         assertEquals(expResult, result);
       
     }
+    
+       /**
+     * Test of performSpeed method, of class Car.
+     */
+    @Test
+    public void testPerformSpeedIs220() {
+       
+        Car c1 = new Car();
+        int expResult = 220;
+        int result = c1.performSpeed();
+        assertEquals(expResult, result);
+      
+    }
+    
 
     /**
      * Test of performWeight method, of class Car.
