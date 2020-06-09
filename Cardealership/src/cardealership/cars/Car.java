@@ -9,7 +9,7 @@ package cardealership.cars;
  *
  * @author wadef
  */
-public abstract class Car {
+public class Car {
    
     private String Model;
     
@@ -30,6 +30,9 @@ public abstract class Car {
         this.Brand = Brand;
         this.NumberPlate = NumberPlate;
         this.price = price;
+    }
+    public Car(){
+        
     }
     
     public double getPrice() {
