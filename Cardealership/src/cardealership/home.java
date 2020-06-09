@@ -134,7 +134,7 @@ public class home extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new home().setVisible(false);
         dispose();
-        new account().setVisible(true);
+        new account(jLabel3.getText()).setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
