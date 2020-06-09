@@ -113,15 +113,31 @@ public class dbConnection {
     public static String InsertCar(String username, String Brand, String Model, String Numberplate, double price, double wieght, int noofpass, int topspeed){
         try {
             Connection con = getConnection();
-            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            String accountid = getAccountid(username);
             
-            stmt.executeQuery("'" + "INSERT INTO cars" +
-                             "VALUES('" + Brand + ", '" + Model + "' , '" + Numberplate + "' , " +
-                             Double.toString(price) + ", " + accountid + ", " + topspeed + ", " + noofpass + 
-                             ", " + wieght +")");
+            String sql = "INSERT INTO cars (number_plate, model, brand, price, account_id, topspeed, num_passengers, weight) "
+                    + "VALUES (?,?,?,?,?,?,?,?)";
+            String sql1 = "UPDATE account set account_balance = account_balace - " + price;
             
-            return "Successfully added car";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            PreparedStatement stmt1 = con.prepareStatement(sql1);
+            stmt.setString(1, Numberplate);
+            stmt.setString(2, Model);
+            stmt.setString(3, Brand);
+            stmt.setDouble(4, price);
+            stmt.setInt(5, Integer.parseInt(getAccountid(username)));
+            stmt.setInt(6, topspeed);
+            stmt.setInt(7, noofpass);
+            stmt.setDouble(8, wieght);
+            
+            int rowsinserted = stmt.executeUpdate();
+            int rowsupdated = stmt1.executeUpdate();
+            
+            if(rowsinserted > 0){
+                if(rowsupdated > 0){
+                    return "Balance updated, car bought";
+                }
+                return "Inserted values";
+            }
         } catch (SQLException ex) {
             Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
