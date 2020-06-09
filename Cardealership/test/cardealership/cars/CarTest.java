@@ -225,6 +225,18 @@ public class CarTest {
         assertEquals(expResult, result);
        
     }
+      /**
+     * Test of performNoofPassengers method, of class Car.
+     */
+    @Test
+    public void testPerformNoofPassengersIs4() {
+       
+        Car c3 = new Car();
+        int expResult = 4;
+        int result = c3.performNoofPassengers();
+        assertEquals(expResult, result);
+       
+    }
 
     public class CarImpl extends Car {
 
