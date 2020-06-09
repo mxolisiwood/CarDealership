@@ -39,7 +39,7 @@ public class sell extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             Connection con = dbConnection.getConnection();
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet rs = stmt.executeQuery("SELECT * FROM cars");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM cars WHERE account_id = " + dbConnection.getAccountid(username));
             
            while(rs.next()){ 
                 model.insertRow(model.getRowCount(), new Object[] {
