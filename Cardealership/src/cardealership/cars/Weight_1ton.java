@@ -13,7 +13,7 @@ public class Weight_1ton implements IWeight{
 
     @Override
     public double getWeight() {
-     return 1;
+     return 1.3;
     }
     
 }

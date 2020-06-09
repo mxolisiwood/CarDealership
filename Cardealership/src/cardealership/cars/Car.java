@@ -19,7 +19,7 @@ public abstract class Car {
     
     public IMaxSpeed maxSpeed;
     
-    public double price;
+    private double price;
     
     public INoOfPassengers noOfpassengers;
     
@@ -32,7 +32,14 @@ public abstract class Car {
         this.price = price;
     }
     
+    public double getPrice() {
+        return price;
+    }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    
     public String getModel() {
         return Model;
     }
