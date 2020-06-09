@@ -199,6 +199,19 @@ public class CarTest {
         assertEquals(expResult, result, 2.6);
        
     }
+    
+      /**
+     * Test of performWeight method, of class Car.
+     */
+    @Test
+    public void testPerformWeightIs3Ton() {
+       
+        Car c2 = new Car();
+        double expResult = 3.7;
+        double result = c2.performWeight();
+        assertEquals(expResult, result, 3.7);
+       
+    }
 
     /**
      * Test of performNoofPassengers method, of class Car.
