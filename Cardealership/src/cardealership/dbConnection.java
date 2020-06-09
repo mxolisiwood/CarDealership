@@ -116,7 +116,8 @@ public class dbConnection {
             
             String sql = "INSERT INTO cars (number_plate, model, brand, price, account_id, topspeed, num_passengers, weight) "
                     + "VALUES (?,?,?,?,?,?,?,?)";
-            String sql1 = "UPDATE account set account_balance = account_balace - " + price;
+            
+            String sql1 = "UPDATE account set account_balance = account_balance - " + price;
             
             PreparedStatement stmt = con.prepareStatement(sql);
             PreparedStatement stmt1 = con.prepareStatement(sql1);

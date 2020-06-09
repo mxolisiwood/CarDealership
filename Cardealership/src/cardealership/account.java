@@ -274,6 +274,12 @@ public class account extends javax.swing.JFrame {
         } else {
             if (rgbSUV.isSelected()) {
             Car suv = new Suv(txtBrand.getText(), txtModel.getText(), txtNumberplate.getText(), Double.parseDouble(txtPrice.getText()));
+            JOptionPane.showMessageDialog(null,
+                    dbConnection.InsertCar(jLabel4.getText(), suv.getBrand(), suv.getModel(), suv.getNumberPlate(),
+                                           suv.getPrice(),suv.performWeight(),  suv.performNoofPassengers(), suv.performSpeed())
+                    );
+     
+            
         }
         else if (rgbSportsCar.isSelected()) {
             
