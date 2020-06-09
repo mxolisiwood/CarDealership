@@ -103,7 +103,7 @@
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="7" rowCount="4">
+              <Table columnCount="7" rowCount="0">
                 <Column editable="true" title="Model" type="java.lang.String"/>
                 <Column editable="true" title="Brand" type="java.lang.String"/>
                 <Column editable="true" title="Top Speed" type="java.lang.Integer"/>
