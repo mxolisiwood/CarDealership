@@ -173,21 +173,18 @@ public class CarTest {
         int result = c1.performSpeed();
         assertEquals(expResult, result);
       
-    }
-    
-
+    }  
     /**
      * Test of performWeight method, of class Car.
      */
     @Test
-    public void testPerformWeight() {
-        System.out.println("performWeight");
-        Car instance = null;
-        double expResult = 0.0;
-        double result = instance.performWeight();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testPerformWeightIs1Ton() {
+       
+        Car c2 = new Car();
+        double expResult = 1.3;
+        double result = c2.performWeight();
+        assertEquals(expResult, result, 1.3);
+       
     }
 
     /**
