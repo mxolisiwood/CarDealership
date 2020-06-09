@@ -95,4 +95,36 @@ public class dbConnection {
         }
      return "ERROR IN getBalance";   
     }
+    
+    public static String getAccountid(String username){
+        try {
+            Connection con = getConnection();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = stmt.executeQuery("SELECT id FROM account WHERE user_name = '" +username+"'");
+            if(rs.next()){
+                return  Integer.toString(rs.getInt("id"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     return "ERROR IN getAccountid";
+    }
+    
+    public static String InsertCar(String username, String Brand, String Model, String Numberplate, double price, double wieght, int noofpass, int topspeed){
+        try {
+            Connection con = getConnection();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String accountid = getAccountid(username);
+            
+            stmt.executeQuery("'" + "INSERT INTO cars" +
+                             "VALUES('" + Brand + ", '" + Model + "' , '" + Numberplate + "' , " +
+                             Double.toString(price) + ", " + accountid + ", " + topspeed + ", " + noofpass + 
+                             ", " + wieght +")");
+            
+            return "Successfully added car";
+        } catch (SQLException ex) {
+            Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "ERROR IN INSERTING CAR";
+    }
 }
