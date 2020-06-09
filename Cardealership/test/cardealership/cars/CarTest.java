@@ -141,14 +141,13 @@ public class CarTest {
      * Test of performSpeed method, of class Car.
      */
     @Test
-    public void testPerformSpeed() {
-        System.out.println("performSpeed");
-        Car instance = null;
-        int expResult = 0;
-        int result = instance.performSpeed();
+    public void testPerformSpeedIs140() {
+       
+        Car c1 = new Car();
+        int expResult = 140;
+        int result = c1.performSpeed();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
 
     /**
