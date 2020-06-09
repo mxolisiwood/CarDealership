@@ -6,7 +6,9 @@
 package cardealership;
 
 import cardealership.cars.Car;
+import cardealership.cars.Sportscar;
 import cardealership.cars.Suv;
+import cardealership.cars.Van;
 import javax.swing.JOptionPane;
 
 /**
@@ -273,19 +275,26 @@ public class account extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Number Plate cannot be null");
         } else {
             if (rgbSUV.isSelected()) {
+                
             Car suv = new Suv(txtBrand.getText(), txtModel.getText(), txtNumberplate.getText(), Double.parseDouble(txtPrice.getText()));
             JOptionPane.showMessageDialog(null,
                     dbConnection.InsertCar(jLabel4.getText(), suv.getBrand(), suv.getModel(), suv.getNumberPlate(),
                                            suv.getPrice(),suv.performWeight(),  suv.performNoofPassengers(), suv.performSpeed())
                     );
-     
-            
         }
         else if (rgbSportsCar.isSelected()) {
-            
+            Car sp = new Sportscar(txtBrand.getText(), txtModel.getText(), txtNumberplate.getText(), Double.parseDouble(txtPrice.getText()));
+            JOptionPane.showMessageDialog(null, 
+                    dbConnection.InsertCar(jLabel4.getText(), sp.getBrand(), sp.getModel(), sp.getNumberPlate(),
+                            sp.getPrice(), sp.performWeight(), sp.performNoofPassengers(), sp.performSpeed())
+                    );
         }
         else if (rgbVan.isSelected()) {
-            
+            Car van = new Van(txtBrand.getText(), txtModel.getText(), txtNumberplate.getText(), Double.parseDouble(txtPrice.getText()));
+            JOptionPane.showMessageDialog(null, 
+                    dbConnection.InsertCar(jLabel4.getText(), van.getBrand(), van.getModel(), van.getNumberPlate(),
+                            van.getPrice(), van.performWeight(), van.performNoofPassengers(), van.performSpeed())
+                    );
         }
         else {
              JOptionPane.showMessageDialog(null,"Please select Type of Car.");
