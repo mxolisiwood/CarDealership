@@ -217,14 +217,13 @@ public class CarTest {
      * Test of performNoofPassengers method, of class Car.
      */
     @Test
-    public void testPerformNoofPassengers() {
-        System.out.println("performNoofPassengers");
-        Car instance = null;
-        int expResult = 0;
-        int result = instance.performNoofPassengers();
+    public void testPerformNoofPassengersIs2() {
+       
+        Car c3 = new Car();
+        int expResult = 2;
+        int result = c3.performNoofPassengers();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     public class CarImpl extends Car {
