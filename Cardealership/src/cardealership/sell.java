@@ -74,7 +74,7 @@ public class sell extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNumPlate = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -131,7 +131,7 @@ public class sell extends javax.swing.JFrame {
                 .addContainerGap(405, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNumPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68))
             .addGroup(layout.createSequentialGroup()
                 .addGap(287, 287, 287)
@@ -168,7 +168,7 @@ public class sell extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumPlate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(25, 25, 25))
@@ -185,7 +185,19 @@ public class sell extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        if("".equals(txtNumPlate.getText())){
+            JOptionPane.showMessageDialog(null, "Please enter a number plate");
+        }else {
+            if(dbConnection.isCarAvailable(txtNumPlate.getText())){
+                JOptionPane.showMessageDialog(null, 
+                        dbConnection.SellCar(txtNumPlate.getText(), jLabel3.getText())
+                        );
+             
+            }else {
+                JOptionPane.showMessageDialog(null, "The Number plate doesnt match any enteries in the database");
+            }
+          
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -232,6 +244,6 @@ public class sell extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtNumPlate;
     // End of variables declaration//GEN-END:variables
 }

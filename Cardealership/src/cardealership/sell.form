@@ -27,7 +27,7 @@
               <EmptySpace pref="405" max="32767" attributes="0"/>
               <Component id="jLabel2" min="-2" pref="77" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-              <Component id="jTextField1" min="-2" pref="118" max="-2" attributes="0"/>
+              <Component id="txtNumPlate" min="-2" pref="118" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -72,7 +72,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNumPlate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="33" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
@@ -178,7 +178,7 @@
         <Property name="text" type="java.lang.String" value="Number Plate :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="txtNumPlate">
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>

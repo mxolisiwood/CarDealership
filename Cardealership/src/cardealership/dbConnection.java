@@ -110,7 +110,7 @@ public class dbConnection {
      return "ERROR IN getAccountid";
     }
     
-    public static String InsertCar(String username, String Brand, String Model, String Numberplate, double price, double wieght, int noofpass, int topspeed){
+    public static String InsertCar(String username, String Brand, String Model, String Numberplate, double price, double wieght, int noofpass, int topspeed) {
         try {
             Connection con = getConnection();
             
@@ -143,5 +143,75 @@ public class dbConnection {
             Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "ERROR IN INSERTING CAR";
+    }
+    
+    public static boolean isCarAvailable(String NumberPlate){
+        try {
+            Connection con = getConnection();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = stmt.executeQuery("SELECT number_plate FROM cars");
+            while(rs.next()){
+                if(rs.getString("number_plate").equals(NumberPlate)){
+                    return true; 
+                }
+            }
+            return false;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return false;
+    }
+    
+    public static double getPrice(String NumberPlate){
+        try {
+            Connection con = getConnection();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = stmt.executeQuery("SELECT price FROM cars WHERE number_plate = " + "'" +NumberPlate + "'");
+            if(rs.next()){
+                return rs.getDouble("price");
+            }
+            return 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return 0;
+    }
+    
+    public static String SellCar(String numberplate, String username){
+        Connection con = getConnection();
+        double price = getPrice(numberplate);
+        if(price == 0){
+            return "getPrice Error";
+        }
+        
+        String sql = "DELETE FROM cars WHERE number_plate = ?";
+        String sql1 = "UPDATE account SET account_balance = ? + account_balance WHERE user_name = ?";
+        
+        PreparedStatement stmt; 
+        PreparedStatement stmt1;
+        
+        try {
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, numberplate);
+            
+            stmt1 = con.prepareStatement(sql1);
+            stmt1.setDouble(1, price);
+            stmt1.setString(2, username);
+            
+            int rowsdeleted = stmt.executeUpdate();
+            int rowsUpdated = stmt1.executeUpdate();
+            
+            if(rowsdeleted > 0){
+                if(rowsUpdated > 0){
+                    return "Car sold, Balance updated";
+                }
+                return "Car sold";
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+        return "ERROR IN SELL CAR";
     }
 }
