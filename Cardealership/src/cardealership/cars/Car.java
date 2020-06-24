@@ -25,6 +25,10 @@ public class Car {
     
     public IWeight weight;
     
+    public ICondition condition;
+    
+    public IFuelType fuelType;
+    
     public Car(String Model, String Brand, String NumberPlate, double price){
         this.Model = Model;
         this.Brand = Brand;
@@ -77,6 +81,14 @@ public class Car {
     
     public int performNoofPassengers(){
         return noOfpassengers.NoOfPassengers();
+    }
+    
+    public String performCondition(){
+        return condition.getCondition();
+    }
+    
+    public String performTypeOfFuel(){
+        return fuelType.getTypeOfFuel();
     }
       
 }
