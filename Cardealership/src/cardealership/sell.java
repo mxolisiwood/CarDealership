@@ -101,6 +101,11 @@ public class sell extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -199,6 +204,20 @@ public class sell extends javax.swing.JFrame {
           
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        int SelectedRowIndex = jTable1.getSelectedRow();
+        
+        new View(
+                jLabel3.getText(),
+                model.getValueAt(SelectedRowIndex, 0).toString(),
+                model.getValueAt(SelectedRowIndex, 1).toString(),
+                model.getValueAt(SelectedRowIndex, 4).toString(),
+                model.getValueAt(SelectedRowIndex, 6).toString()
+        ).setVisible(true);
+        
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
