@@ -9,11 +9,6 @@ package cardealership.cars;
  *
  * @author silab
  */
-public class GasolineFuel implements IFuelType {
-
-    @Override
-    public String getTypeOfFuel() {
-       return "Gasoline";
-    }
-    
+public interface ICondition {
+    public String getCondition();
 }

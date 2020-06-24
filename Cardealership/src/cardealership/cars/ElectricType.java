@@ -12,7 +12,7 @@ package cardealership.cars;
 public class ElectricType implements IFuelType {
 
     @Override
-    public String TypeOfFuel() {
+    public String getTypeOfFuel() {
        return "Electric Car";
     }
     

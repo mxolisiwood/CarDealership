@@ -10,5 +10,5 @@ package cardealership.cars;
  * @author silab
  */
 public interface IFuelType {
-    public String TypeOfFuel();
+    public String getTypeOfFuel();
 }

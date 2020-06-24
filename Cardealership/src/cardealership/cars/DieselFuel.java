@@ -11,8 +11,9 @@ package cardealership.cars;
  */
 public class DieselFuel implements IFuelType{
 
+
     @Override
-    public String TypeOfFuel() {
+    public String getTypeOfFuel() {
        return "Diesel";
     }
     

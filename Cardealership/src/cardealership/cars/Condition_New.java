@@ -9,11 +9,11 @@ package cardealership.cars;
  *
  * @author silab
  */
-public class GasolineFuel implements IFuelType {
+public class Condition_New implements ICondition {
 
     @Override
-    public String getTypeOfFuel() {
-       return "Gasoline";
+    public String getCondition() {
+        return "New Car";
     }
     
 }
