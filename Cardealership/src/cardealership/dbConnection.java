@@ -110,12 +110,12 @@ public class dbConnection {
      return "ERROR IN getAccountid";
     }
     
-    public static String InsertCar(String username, String Brand, String Model, String Numberplate, double price, double wieght, int noofpass, int topspeed) {
+    public static String InsertCar(String username, String Brand, String Model, String Numberplate, double price, double wieght, int noofpass, int topspeed, String Condition, String FuelType, String Image) {
         try {
             Connection con = getConnection();
             
-            String sql = "INSERT INTO cars (number_plate, model, brand, price, account_id, topspeed, num_passengers, weight) "
-                    + "VALUES (?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO cars (number_plate, model, brand, price, account_id, topspeed, num_passengers, weight,Car_Condition, FuelType, Image) "
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
             
             String sql1 = "UPDATE account set account_balance = account_balance - " + price;
             
@@ -129,6 +129,10 @@ public class dbConnection {
             stmt.setInt(6, topspeed);
             stmt.setInt(7, noofpass);
             stmt.setDouble(8, wieght);
+            stmt.setString(9, Condition);
+            stmt.setString(10, FuelType);
+            stmt.setString(11, Image);
+            
             
             int rowsinserted = stmt.executeUpdate();
             int rowsupdated = stmt1.executeUpdate();

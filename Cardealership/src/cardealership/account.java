@@ -412,21 +412,24 @@ public class account extends javax.swing.JFrame {
             Car suv = new Suv(txtBrand.getText(), txtModel.getText(), txtNumberplate.getText(), Double.parseDouble(txtPrice.getText()));
             JOptionPane.showMessageDialog(null,
                     dbConnection.InsertCar(jLabel4.getText(), suv.getBrand(), suv.getModel(), suv.getNumberPlate(),
-                                           suv.getPrice(),suv.performWeight(),  suv.performNoofPassengers(), suv.performSpeed())
+                                           suv.getPrice(),suv.performWeight(),  suv.performNoofPassengers(), suv.performSpeed(),
+                                           suv.performCondition(), suv.performTypeOfFuel(), "IMAGEPATH")
                     );
         }
         else if (rgbSportsCar.isSelected()) {
             Car sp = new Sportscar(txtBrand.getText(), txtModel.getText(), txtNumberplate.getText(), Double.parseDouble(txtPrice.getText()));
             JOptionPane.showMessageDialog(null, 
                     dbConnection.InsertCar(jLabel4.getText(), sp.getBrand(), sp.getModel(), sp.getNumberPlate(),
-                            sp.getPrice(), sp.performWeight(), sp.performNoofPassengers(), sp.performSpeed())
+                            sp.getPrice(), sp.performWeight(), sp.performNoofPassengers(), sp.performSpeed(),
+                            sp.performCondition(), sp.performTypeOfFuel(), "IMAGEPATH")
                     );
         }
         else if (rgbVan.isSelected()) {
             Car van = new Van(txtBrand.getText(), txtModel.getText(), txtNumberplate.getText(), Double.parseDouble(txtPrice.getText()));
             JOptionPane.showMessageDialog(null, 
                     dbConnection.InsertCar(jLabel4.getText(), van.getBrand(), van.getModel(), van.getNumberPlate(),
-                            van.getPrice(), van.performWeight(), van.performNoofPassengers(), van.performSpeed())
+                            van.getPrice(), van.performWeight(), van.performNoofPassengers(), van.performSpeed(),
+                            van.performCondition(), van.performTypeOfFuel(), "IMAGEPATH")
                     );
         }
         else {

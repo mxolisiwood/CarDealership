@@ -43,14 +43,15 @@ public class sell extends javax.swing.JFrame {
             
            while(rs.next()){ 
                 model.insertRow(model.getRowCount(), new Object[] {
-                    rs.getString("model"),
-                    rs.getString("brand"),
+                     rs.getString("model"),
+                     rs.getString("brand"),
                      rs.getInt("topspeed"),
                      rs.getInt("num_passengers"),
-                    rs.getString("number_plate"),
+                     rs.getString("number_plate"),
                      rs.getDouble("weight"),
-                     rs.getDouble("price")
-  
+                     rs.getDouble("price"),
+                     rs.getString("Car_Condition"),
+                     rs.getString("FuelType")
                 });
             }
         } catch (SQLException ex) {
@@ -91,11 +92,11 @@ public class sell extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Model", "Brand", "Top Speed", "Passengers", "Number Plate", "Weight", "Price"
+                "Model", "Brand", "Top Speed", "Passengers", "Number Plate", "Weight", "Price", "Condition", "FuelType"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -217,35 +218,27 @@ public class sell extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    String Brand = " ";
-    String Model = " ";
-    String Username = " ";
-    String NumberPlate = " ";
-    String Price = " ";
+   
     
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+       
         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
         int SelectedRowIndex = jTable1.getSelectedRow();
         
         
-        Username = jLabel3.getText();
-        Model = model.getValueAt(SelectedRowIndex, 0).toString();
-        Brand = model.getValueAt(SelectedRowIndex, 1).toString();
-        NumberPlate = model.getValueAt(SelectedRowIndex, 4).toString();
-        Price = model.getValueAt(SelectedRowIndex, 6).toString();
+        String user_name = jLabel3.getText();
+        String Model = model.getValueAt(SelectedRowIndex, 0).toString();
+        String Brand = model.getValueAt(SelectedRowIndex, 1).toString();
+        String NumberPlate = model.getValueAt(SelectedRowIndex, 4).toString();
+        String Price = model.getValueAt(SelectedRowIndex, 6).toString();
  
+        
+        new sell().setVisible(false);
+        dispose();
+        new View(user_name, Brand, Model,  NumberPlate, Price).setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new sell().setVisible(false);
-        dispose();
-        new View(
-              Username,
-              Model,
-              Brand,
-              NumberPlate,
-              Price
-      ).setVisible(true);
       
     }//GEN-LAST:event_jButton3ActionPerformed
 
