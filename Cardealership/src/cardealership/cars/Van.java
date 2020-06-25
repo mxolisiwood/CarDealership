@@ -16,6 +16,8 @@ public class Van extends Car {
         weight = new Weight_3ton();
         noOfpassengers = new Passengers_8();
         maxSpeed = new MaxSpeed_140km();
+        condition = new Condition_PreOwned();
+        fuelType = new DieselFuel();
     }
     
 }

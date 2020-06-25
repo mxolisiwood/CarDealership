@@ -16,6 +16,8 @@ public class Sportscar extends Car {
         maxSpeed = new MaxSpeed_220km();
         weight = new Weight_1ton();
         noOfpassengers = new Passengers_2();
+        condition = new Condition_New();
+        fuelType = new ElectricType();
     }
     
 }

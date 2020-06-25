@@ -16,6 +16,8 @@ public class Suv extends Car{
         weight = new Weight_2Ton();
         maxSpeed = new MaxSpeed_160km();
         noOfpassengers = new Passengers_4();
+        condition = new Condition_Damaged();
+        fuelType = new GasolineFuel();
     }
     
 }
