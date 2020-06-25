@@ -218,4 +218,32 @@ public class dbConnection {
       
         return "ERROR IN SELL CAR";
     }
+    
+    public static boolean numberplateinUse(String Numberplate){
+        try {
+            Connection conn = getConnection();
+            Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String sql = "Select number_plate FROM cars WHERE number_plate = " + Numberplate;
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            while(rs.next()){
+                if(rs.getString("number_plate").equals(Numberplate)){
+                    return false;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true;
+    }
+    
+    public static String UpdateCar(String Username, String Model, String Brand, String Numberplate, double Price){
+        Connection conn = getConnection();
+        if(!numberplateinUse(Numberplate)){
+             String sql = "UPDATE cars SET model = ?, brand = ?, number_plate = ?, price = ? ";
+        }else {
+            return "Numberplate is in use";
+        }
+       return "ERROR IN UPDATING CAR";
+    }
 }
