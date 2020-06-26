@@ -133,7 +133,7 @@ public class sell extends javax.swing.JFrame {
 
         jLabel4.setText("Username:");
 
-        jButton3.setText("Update");
+        jButton3.setText("View Car");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

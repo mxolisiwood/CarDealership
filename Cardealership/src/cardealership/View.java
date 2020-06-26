@@ -5,6 +5,8 @@
  */
 package cardealership;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -34,6 +36,10 @@ public class View extends javax.swing.JFrame {
         jTextField2.setText(Model);
         jTextField4.setText(Double.toString(Price));
         
+        Image getAbsolutepath = null;
+        ImageIcon icon = new ImageIcon(dbConnection.getImage(NumberPlate));
+        Image image = icon.getImage().getScaledInstance(jLabel18.getWidth(), jLabel18.getHeight(), Image.SCALE_SMOOTH);
+        jLabel18.setIcon(icon);
         
         
         

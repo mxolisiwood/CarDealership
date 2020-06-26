@@ -267,5 +267,20 @@ public class dbConnection {
        return "ERROR IN UPDATING CAR";
     }
     
-    
+    public static String getImage(String Numberplate){
+        try {
+            Connection Conn = getConnection();
+            String sql = "SELECT Image FROM cars WHERE number_plate = '" + Numberplate + "'";
+            Statement stmt = Conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                return rs.getString("Image");
+            }else {
+                return "ERROR IN FINDING IMAGE";
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "ERROR IN COLLECTING IMAGE";
+    }
 }
