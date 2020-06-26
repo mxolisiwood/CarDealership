@@ -59,7 +59,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField1.setText("jPasswordField1");
         jPasswordField1.setName("txtboxPassword"); // NOI18N
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

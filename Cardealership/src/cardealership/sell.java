@@ -25,10 +25,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class sell extends javax.swing.JFrame {
     
-    public static String Price;
     public static String Brand;
-    public static String Model;
-    public static String NumberPlate;
     public static String user_name;
     
     /**
@@ -228,26 +225,32 @@ public class sell extends javax.swing.JFrame {
     
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
        
-        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-        int SelectedRowIndex = jTable1.getSelectedRow();
-        
-        
-        user_name = jLabel3.getText();
-        Model = model.getValueAt(SelectedRowIndex, 0).toString();
-        Brand = model.getValueAt(SelectedRowIndex, 1).toString();
-        NumberPlate = model.getValueAt(SelectedRowIndex, 4).toString();
-        Price = model.getValueAt(SelectedRowIndex, 6).toString();
+     
  
         
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        int SelectedRowIndex = jTable1.getSelectedRow();
+        
+        
+        user_name = jLabel3.getText();
+         
         new sell().setVisible(false);
         dispose();
+        Brand = model.getValueAt(SelectedRowIndex, 0).toString();
+        
         if(Brand.equals("")){
             JOptionPane.showMessageDialog(null, "Please select a row first");
         }else {
-            new View(user_name, Brand, Model,  NumberPlate, Price).setVisible(true);
+            new View(
+                    user_name,
+                    model.getValueAt(SelectedRowIndex, 1).toString(),
+                    model.getValueAt(SelectedRowIndex, 0).toString(),
+                    model.getValueAt(SelectedRowIndex, 4).toString(),
+                    Double.parseDouble(model.getValueAt(SelectedRowIndex, 6).toString()) 
+            ).setVisible(true);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 

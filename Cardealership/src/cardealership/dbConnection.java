@@ -223,16 +223,15 @@ public class dbConnection {
         try {
             Connection conn = getConnection();
             Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "Select number_plate FROM cars WHERE number_plate = " + Numberplate;
+            String sql = "Select number_plate FROM cars EXCEPT SELECT number_plate FROM cars WHERE number_plate = '" + Numberplate + "'";
             ResultSet rs = stmt.executeQuery(sql);
             
             while(rs.next()){
                 if(rs.getString("number_plate").equals(Numberplate)){
                     return true;
-                }else {
-                    return false;
                 }
             }
+            return false;
         } catch (SQLException ex) {
             Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -243,15 +242,14 @@ public class dbConnection {
         Connection conn = getConnection();
         if(!numberplateinUse(Numberplate)){
             try {
-                String sql = "UPDATE cars SET model = ?, brand = ?, number_plate = ?, price = ? WHERE number_plate = ?";
+                String sql = "UPDATE cars SET model = ?, brand = ?,price = ? WHERE number_plate = ?;";
                 PreparedStatement stmt;
                 stmt = conn.prepareStatement(sql);
                 
                 stmt.setString(1, Model);
                 stmt.setString(2, Brand);
-                stmt.setString(3, Numberplate);
-                stmt.setDouble(4, Price);
-                stmt.setString(5, Numberplate);
+                stmt.setDouble(3, Price);
+                stmt.setString(4, Numberplate);
                 
                 int rowsUpdated = stmt.executeUpdate();
                 
@@ -268,4 +266,6 @@ public class dbConnection {
         }
        return "ERROR IN UPDATING CAR";
     }
+    
+    
 }
