@@ -19,12 +19,21 @@ public class View extends javax.swing.JFrame {
     }
     
     public View(String Username, String Brand, String Model, String NumberPlate, String Price) {
+        
         jLabel7.setText(Username);
         jLabel9.setText(Brand);
         jLabel10.setText(Model);
         jLabel11.setText(NumberPlate);
         jLabel12.setText(Price);
+        
+        jTextField1.setText(Brand);
+        jTextField2.setText(Model);
+        jTextField3.setText(NumberPlate);
+        jTextField4.setText(Price);
+        
         initComponents();
+        
+        
     }
 
     /**
@@ -167,6 +176,11 @@ public class View extends javax.swing.JFrame {
         });
 
         jButton2.setText("Update ");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -282,6 +296,10 @@ public class View extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

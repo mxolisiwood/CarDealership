@@ -24,7 +24,13 @@ import javax.swing.table.DefaultTableModel;
  * @author silab
  */
 public class sell extends javax.swing.JFrame {
-
+    
+    public static String Price;
+    public static String Brand;
+    public static String Model;
+    public static String NumberPlate;
+    public static String user_name;
+    
     /**
      * Creates new form sell
      */
@@ -226,20 +232,23 @@ public class sell extends javax.swing.JFrame {
         int SelectedRowIndex = jTable1.getSelectedRow();
         
         
-        String user_name = jLabel3.getText();
-        String Model = model.getValueAt(SelectedRowIndex, 0).toString();
-        String Brand = model.getValueAt(SelectedRowIndex, 1).toString();
-        String NumberPlate = model.getValueAt(SelectedRowIndex, 4).toString();
-        String Price = model.getValueAt(SelectedRowIndex, 6).toString();
+        user_name = jLabel3.getText();
+        Model = model.getValueAt(SelectedRowIndex, 0).toString();
+        Brand = model.getValueAt(SelectedRowIndex, 1).toString();
+        NumberPlate = model.getValueAt(SelectedRowIndex, 4).toString();
+        Price = model.getValueAt(SelectedRowIndex, 6).toString();
  
         
-        new sell().setVisible(false);
-        dispose();
-        new View(user_name, Brand, Model,  NumberPlate, Price).setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      
+        new sell().setVisible(false);
+        dispose();
+        if(Brand.equals("")){
+            JOptionPane.showMessageDialog(null, "Please select a row first");
+        }else {
+            new View(user_name, Brand, Model,  NumberPlate, Price).setVisible(true);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

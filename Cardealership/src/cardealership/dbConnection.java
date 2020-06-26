@@ -228,6 +228,8 @@ public class dbConnection {
             
             while(rs.next()){
                 if(rs.getString("number_plate").equals(Numberplate)){
+                    return true;
+                }else {
                     return false;
                 }
             }
@@ -240,7 +242,27 @@ public class dbConnection {
     public static String UpdateCar(String Username, String Model, String Brand, String Numberplate, double Price){
         Connection conn = getConnection();
         if(!numberplateinUse(Numberplate)){
-             String sql = "UPDATE cars SET model = ?, brand = ?, number_plate = ?, price = ? ";
+            try {
+                String sql = "UPDATE cars SET model = ?, brand = ?, number_plate = ?, price = ? WHERE number_plate = ?";
+                PreparedStatement stmt;
+                stmt = conn.prepareStatement(sql);
+                
+                stmt.setString(1, Model);
+                stmt.setString(2, Brand);
+                stmt.setString(3, Numberplate);
+                stmt.setDouble(4, Price);
+                stmt.setString(5, Numberplate);
+                
+                int rowsUpdated = stmt.executeUpdate();
+                
+                if(rowsUpdated > 0){
+                    return "Car information Updated";
+                }else {
+                    return "error in method update";
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else {
             return "Numberplate is in use";
         }
